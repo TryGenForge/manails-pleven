@@ -304,9 +304,19 @@ h2{font-family:'Prata',serif;font-weight:400;font-size:clamp(1.85rem,3.8vw,2.7re
 .soc{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:.56rem 1.1rem;border-radius:99px;font-weight:600;font-size:.9rem;transition:background .2s,border-color .2s}
 .soc:hover{background:rgba(226,58,133,.22);border-color:var(--pink)}
 .contact-in{display:grid;grid-template-columns:1fr 1fr;gap:3.8rem;align-items:start}
-.mapbox{border-radius:16px;overflow:hidden;box-shadow:0 22px 56px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.14)}
-.mapbox iframe{width:100%;height:300px;border:0;display:block}
-.mapbox img{width:100%;height:200px;object-fit:cover}
+.mapcard{display:block;border-radius:16px;overflow:hidden;box-shadow:0 22px 56px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.14);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.mapcard:hover{transform:translateY(-3px);box-shadow:0 26px 64px rgba(0,0,0,.5)}
+.mapcard-top{position:relative;height:200px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,#34406a 0%,#222a3e 70%)}
+.mapcard .mapgrid{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:34px 34px;transform:perspective(300px) rotateX(38deg);transform-origin:center 70%}
+.mapcard .maproad{position:absolute;left:-10%;right:-10%;top:58%;height:10px;background:linear-gradient(90deg,transparent,rgba(255,95,164,.5),transparent);transform:rotate(-7deg)}
+.mapcard .maproad.r2{top:auto;bottom:30%;height:7px;background:linear-gradient(90deg,transparent,rgba(201,207,219,.35),transparent);transform:rotate(5deg)}
+.mapcard .mappin{position:absolute;left:50%;top:42%;transform:translate(-50%,-100%);color:var(--pink-hot);filter:drop-shadow(0 6px 10px rgba(0,0,0,.4));z-index:2}
+.mapcard-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;background:rgba(255,255,255,.05)}
+.mapcard-bar strong{display:block;color:#fff;font-size:1.02rem}
+.mapcard-bar small{color:var(--silver-dim);font-size:.85rem}
+.mapcard-btn{flex:0 0 auto;background:linear-gradient(120deg,var(--pink),var(--pink-deep));color:#fff;font-weight:700;font-size:.85rem;padding:.55rem 1rem;border-radius:99px;white-space:nowrap}
+.mapcard-logo{margin-top:1.2rem;border-radius:16px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12)}
+.mapcard-logo img{width:100%;display:block}
 @media(max-width:880px){.contact-in{grid-template-columns:1fr}}
 
 /* ===== CTA band ===== */
@@ -755,10 +765,21 @@ footer .logo{font-size:1.4rem}
       </div>
     </div>
     <div>
-      <div class="mapbox rv d1">
-        <iframe src="https://www.google.com/maps?q=M%26A+nails+%D0%9F%D0%BB%D0%B5%D0%B2%D0%B5%D0%BD+%D1%83%D0%BB.+%D0%9E%D1%80%D1%8F%D1%85%D0%BE%D0%B2%D0%BE+13&output=embed" loading="lazy" title="Карта — M&A Nails, Плевен"></iframe>
-        <img src="/img/logo.jpg" alt="M&A Nails — лого" style="height:auto;aspect-ratio:auto">
-      </div>
+      <a class="mapcard rv d1" href="https://www.google.com/maps/search/?api=1&query=M%26A+nails+Pleven&query_place_id=ChIJi97dfZ6Lq0ARQl_XwbPOeTs" target="_blank" rel="noopener">
+        <div class="mapcard-top">
+          <svg class="mappin" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+          <div class="mapgrid"></div>
+          <span class="maproad"></span><span class="maproad r2"></span>
+        </div>
+        <div class="mapcard-bar">
+          <div>
+            <strong>M&A Nails</strong>
+            <small>ж.к. Сторгозия, ул. „Оряхово" 13</small>
+          </div>
+          <span class="mapcard-btn">Виж на картата →</span>
+        </div>
+      </a>
+      <div class="mapcard-logo rv d1"><img src="/img/logo.jpg" alt="M&A Nails — лого"></div>
     </div>
   </div>
 </section>
